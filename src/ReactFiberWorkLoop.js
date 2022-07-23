@@ -89,7 +89,7 @@ function commitRoot() {
 function commitWorker(wip) {
   if (!wip) return
   const { flags, stateNode } = wip
-  const parentNode = wip.return.stateNode
+  const parentNode = getParentNode(wip.return)
   // 1. 提交自己
   if (flags & Placement && stateNode) {
     parentNode.appendChild(stateNode)
@@ -98,4 +98,14 @@ function commitWorker(wip) {
   commitWorker(wip.child)
   // 3. 提交兄弟节点
   commitWorker(wip.sibling)
+}
+
+function getParentNode(wip) {
+  let tem = wip
+  while (tem) {
+    if (tem.stateNode) {
+      return tem.stateNode
+    }
+    tem = tem.return
+  }
 }
