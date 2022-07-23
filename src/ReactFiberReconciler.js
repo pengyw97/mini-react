@@ -10,7 +10,9 @@ export function updateHostComponent(wip) {
   reconcilerFiber(wip, wip.props.children)
 }
 
-export function updateHostTextComponent() {}
+export function updateHostTextComponent(wip) {
+  wip.stateNode = document.createTextNode(wip.props.children)
+}
 
 export function updateFunctionComponent(wip) {
   const { type, props } = wip
@@ -18,7 +20,13 @@ export function updateFunctionComponent(wip) {
   reconcilerFiber(wip, child)
 }
 
-export function updateClassComponent() {}
+export function updateClassComponent(wip) {
+  const { type, props } = wip
+  const instance = new type(props)
+  const child = instance.render()
+  reconcilerFiber(wip, child)
+}
+
 export function updateFragmentComponent() {}
 
 function reconcilerFiber(wip, children) {

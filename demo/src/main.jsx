@@ -1,6 +1,6 @@
 // import React from "react";
 // import ReactDOM from "react-dom";
-import { ReactDOM } from '../which-react'
+import { ReactDOM, Component } from '../which-react'
 
 import './index.css'
 
@@ -12,16 +12,16 @@ function FunctionComponent(props) {
   )
 }
 
-// class ClassComponent extends Component {
-//   render() {
-//     return (
-//       <div className="border">
-//         <h3>{this.props.name}</h3>
-//         我是文本
-//       </div>
-//     )
-//   }
-// }
+class ClassComponent extends Component {
+  render() {
+    return (
+      <div className="border">
+        <h3>{this.props.name}</h3>
+        我是文本
+      </div>
+    )
+  }
+}
 
 function FragmentComponent() {
   return (
@@ -39,8 +39,8 @@ const jsx = (
     <h1>react</h1>
     <a href="https://github.com/bubucuo/mini-react">mini react</a>
     <FunctionComponent name="函数组件" />
-    {/* <ClassComponent name="类组件" />
-    <FragmentComponent /> */}
+    <ClassComponent name="类组件" />
+    {/* <FragmentComponent /> */}
   </div>
 )
 

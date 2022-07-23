@@ -23,6 +23,9 @@ export function isFn(fn) {
 export function isArray(arr) {
   return Array.isArray(arr)
 }
+export function isUndefined(un) {
+  return un === undefined
+}
 
 export function updateNode(node, nextVal) {
   Object.keys(nextVal).forEach((k) => {
