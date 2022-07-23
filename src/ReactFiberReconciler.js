@@ -27,7 +27,9 @@ export function updateClassComponent(wip) {
   reconcilerFiber(wip, child)
 }
 
-export function updateFragmentComponent() {}
+export function updateFragmentComponent(wip) {
+  reconcilerFiber(wip, wip.props.children)
+}
 
 function reconcilerFiber(wip, children) {
   if (isStringOrNumber(children)) {

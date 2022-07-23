@@ -1,5 +1,6 @@
 import {
   ClassComponent,
+  Fragment,
   FunctionComponent,
   HostComponent,
   HostText,
@@ -44,6 +45,8 @@ export function createFiber(vnode, returnFiber) {
     fiber.props = {
       children: vnode,
     }
+  } else {
+    fiber.tag = Fragment
   }
 
   return fiber
