@@ -1,0 +1,2 @@
+let taskQueue = []
+let timerQueue = []
