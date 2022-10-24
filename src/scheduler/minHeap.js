@@ -1,15 +1,15 @@
 // 返回最小堆堆顶元素
-function peek(heap) {
+export function peek(heap) {
   return heap.length === 0 ? null : heap[0]
 }
 
-function push(heap, node) {
+export function push(heap, node) {
   let index = heap.length
   heap.push(node)
   siftUp(heap, node, index)
 }
 
-function pop(heap) {
+export function pop(heap) {
   if (heap.length === 0) {
     return null
   }
